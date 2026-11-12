@@ -17,7 +17,7 @@ IT Infrastructure · Software Programming · Application Deployment
 
 </div>
 
-## 01 · Overview
+## 1. Overview
 
 This repository consolidates evidence of **application development, production-oriented deployments, and web service hosting** across a collection of personal projects, client-facing websites, and application demonstrations.
 
@@ -33,7 +33,7 @@ The work represented here includes:
 
 > **Scope:** This is a portfolio and implementation index, **not** an assertion that Render infrastructure itself was manually provisioned or that all projects use the same stack. Render is a managed hosting platform; underlying server orchestration, scaling, and platform security are outside the scope of the implementations documented here.
 
-## 02 · Deployment Dashboard
+## 2. Deployment Dashboard
 
 <div align="center">
 
@@ -57,97 +57,93 @@ The remaining active entries were predominantly static websites and frontend dep
 
 > **Evidence integrity:** Use an unaltered dashboard capture when presenting deployed-service counts or service status as factual evidence. If the image has been edited for visual presentation, label it as an illustration and keep verified counts separate from the illustration.
 
-## 03 · Featured Implementations
+## 3. Featured Applications & Source Code
 
-The projects below were selected because their public source repositories provide useful detail about architecture, technologies, or application features. **GitHub sources establish the project implementations; the Render dashboard independently establishes the service names shown at the time of capture.** They should not be treated as interchangeable evidence of every feature being operational in production.
+The entries below summarize publicly available **application source code**, including project manifests (`package.json`), source organization, and documented features. Stack information is specific to each repository. Render service types are based on the **original unedited dashboard screenshot**, rather than inferred from files in GitHub. These are brief engineering summaries, not claims that every dependency or planned integration is active in production.
 
-### A. Los Auto & Glass — Frontend / Backend Application
+### 1. Los Auto & Glass — Full-Stack Booking Application
 
-**Repository:** [Los-s-Auto-Glass-](https://github.com/brandon-in-tech/Los-s-Auto-Glass-)  
-**Public project website listed in the repository:** [kcknglass.com](https://www.kcknglass.com/)
+**[Source repository](https://github.com/brandon-in-tech/Los-s-Auto-Glass-)** · [Frontend package](https://github.com/brandon-in-tech/Los-s-Auto-Glass-/blob/main/frontend/package.json) · [Backend package](https://github.com/brandon-in-tech/Los-s-Auto-Glass-/blob/main/backend/package.json) · [Public business website](https://www.kcknglass.com/)
 
-The project is organized into separate `frontend/` and `backend/` directories. Its repository documents a **Next.js 14 + TypeScript frontend** and an **Express.js + TypeScript backend**, including a service-booking experience, contact workflows, and a customer-facing appointment flow. Its README also references PayPal integration and calendar-based booking.
+**Stack:** Next.js 14, React, TypeScript, Tailwind CSS, Framer Motion, Zustand; Node.js, Express, TypeScript, Mongoose/MongoDB integration, CORS, Helmet, JSON Web Token and validation libraries. The source also declares PayPal UI, Nodemailer, Twilio and scheduled-task dependencies.
 
-**Deployment evidence:** The original Render dashboard lists separate Node services for the frontend and backend. This is the clearest example in the portfolio of a two-service application deployment.
+A separated `frontend/` and `backend/` application for auto-glass service discovery and booking. The actual [`backend/src/server.ts`](https://github.com/brandon-in-tech/Los-s-Auto-Glass-/blob/main/backend/src/server.ts) registers authentication, services, bookings, calendar, payment, contact, administration and SMS routes, a health-check endpoint, rate limiting, CORS and security headers. **Render evidence:** `Los-s-Auto-Glass-frontend` and `Los-s-Auto-Glass-backend` are two distinct **Node** services.
 
-**Skills demonstrated:** multi-service deployment organization, frontend/API separation, server-based hosting, environment configuration, and diagnosing interactions between user-facing pages and backend services.
+### 2. Plexura — Agency Website & Contact API Integration
 
-### B. Plexura — Agency Website and API Integration
+**[Source repository](https://github.com/brandon-in-tech/Plexura)** · [Package manifest](https://github.com/brandon-in-tech/Plexura/blob/main/package.json) · [Website](https://plexura.net/)
 
-**Repository:** [Plexura](https://github.com/brandon-in-tech/Plexura)  
-**Public project website:** [plexura.net](https://plexura.net/)
+**Stack:** React 18, JavaScript/JSX, Vite 6, React Router, Tailwind CSS 3, Framer Motion, Lucide React and Three.js. The frontend documentation describes REST/Fetch API communication for contact submissions.
 
-Plexura is a responsive React single-page website built with **Vite, JavaScript/JSX, React Router, Tailwind CSS, and Framer Motion**. Its public README describes a configurable **REST API integration for contact-form submissions**, client-side routing, and reusable UI components.
+A responsive business website with routed pages, component-based layouts and interactive effects. The source includes optional animation-worker functionality with a fallback. Its [`src/App.jsx`](https://github.com/brandon-in-tech/Plexura/blob/main/src/App.jsx) implements `POST /api/contact` using a configurable `VITE_API_URL` and a Render-hosted default endpoint. **Render evidence:** a `Plexura` **Static** service and a separate `Plexura-backend` **Node** service. The public frontend identifies the intended API endpoint but does not independently verify the backend's internal implementation or current runtime health.
 
-**Deployment evidence:** The dashboard includes a `Plexura` static deployment and a separately listed `Plexura-backend` Node service. The screenshot does not independently prove that every frontend request reaches that specific backend service; deployment configuration and runtime logs would be the appropriate evidence for that claim.
+### 3. Kevin Inks — Headless WordPress Portfolio
 
-**Skills demonstrated:** frontend build and delivery, service separation, form-to-API integration, routing, application deployment, and maintenance of an agency website.
+**[Source repository](https://github.com/brandon-in-tech/Kevin-Inks)** · [Package manifest](https://github.com/brandon-in-tech/Kevin-Inks/blob/main/package.json) · [Project website](https://kevin-inks.vercel.app/)
 
-### C. Kevin Inks — Headless CMS Integration
+**Stack:** React 18, TypeScript, Vite 5, Tailwind CSS 3, Framer Motion and a **headless WordPress** content-management integration. The repository also contains a `wordpress-plugin/` directory.
 
-**Repository:** [Kevin-Inks](https://github.com/brandon-in-tech/Kevin-Inks)  
-**Public website listed in the repository:** [kevin-inks.vercel.app](https://kevin-inks.vercel.app/)
+A custom tattoo portfolio with artwork galleries, design availability and consultation calls to action. WordPress provides editable content while React controls the presentation. **Render evidence:** `Kevin-Inks` appears as **Static**; the repository also advertises a Vercel address, which should not be confused with the Render service.
 
-A tattoo portfolio and inquiry experience with a custom **React frontend** and **headless WordPress content management**. The public repository documents an approach that lets the artist update portfolio material and other content through WordPress while the website retains a custom frontend.
+### 4. Tiger Paw Cleaning — Responsive Client Website
 
-**Deployment evidence:** `Kevin-Inks` appears as a Static service in the Render screenshot. The repository separately advertises a Vercel URL, illustrating that **source code, custom domains, and deployed environments should be tracked individually** rather than assumed to point to one platform.
+**[Source repository](https://github.com/brandon-in-tech/Tiger-Paw-Cleaning)** · [Package manifest](https://github.com/brandon-in-tech/Tiger-Paw-Cleaning/blob/main/package.json) · [Website](https://www.tigerpawcleaning.com/)
 
-**Skills demonstrated:** frontend/content separation, third-party CMS integration, content-driven interfaces, and deployment environment awareness.
+**Stack:** React, TypeScript, Vite 6, Tailwind CSS 4, Motion and UI-component libraries including Radix UI/MUI packages in the dependency manifest.
 
-### D. Tiger Paw Cleaning — Client Website
+A service-focused cleaning business site featuring responsive layouts, animated presentation, service information and a quote/contact workflow. The dependency manifest is broad, so listed libraries do not necessarily imply every component is actively used. **Render evidence:** `Tiger-Paw-Cleaning` **Static** service; no independently verified Node backend.
 
-**Repository:** [Tiger-Paw-Cleaning](https://github.com/brandon-in-tech/Tiger-Paw-Cleaning)  
-**Public project website:** [tigerpawcleaning.com](https://www.tigerpawcleaning.com/)
+### 5. Hazy Tatts — Artist Portfolio & Booking Inquiry
 
-A client-facing website built with **React, TypeScript, Vite, Tailwind CSS, and Framer Motion**. The documented features include responsive layouts, a service showcase, animation, and a contact/quote inquiry experience.
+**[Source repository](https://github.com/brandon-in-tech/Hazy-Tatts)** · [Package manifest](https://github.com/brandon-in-tech/Hazy-Tatts/blob/main/package.json) · [Website](https://www.hazeytattoos.com/)
 
-**Deployment evidence:** `Tiger-Paw-Cleaning` appears in the dashboard's active static services. No dedicated backend for this project was established by the original dashboard capture.
+**Stack:** React 18, JavaScript/JSX, **Create React App / react-scripts 5**, custom CSS, native browser animation APIs and **Web3Forms** for booking inquiries. Unlike several other sites, this repository does **not** use Vite/Tailwind as its primary build/styling stack.
 
-**Skills demonstrated:** frontend production builds, responsive delivery, client-oriented website maintenance, and publishing a business-facing interface.
+A filterable portfolio with gallery lightboxes, responsive navigation and inquiry forms. **Render evidence:** `Hazy-Tatts` **Static** service. Web3Forms is an external form service—not proof of a separately hosted backend.
 
-### E. Hazy Tatts — Portfolio and Booking Inquiry
+### 6. Imperial Cleaning Services — Component-Based Business Website
 
-**Repository:** [Hazy-Tatts](https://github.com/brandon-in-tech/Hazy-Tatts)  
-**Public project website:** [hazeytattoos.com](https://www.hazeytattoos.com/)
+**[Source repository](https://github.com/brandon-in-tech/imperial-cleaning-services)** · [Package manifest](https://github.com/brandon-in-tech/imperial-cleaning-services/blob/main/package.json)
 
-A React single-page portfolio with a filterable gallery, responsive navigation, lightbox interaction, and a booking inquiry form. The public project documentation identifies **Web3Forms** for serverless form submission.
+**Stack:** React, JavaScript/JSX, Vite, Tailwind CSS and Framer Motion.
 
-**Deployment evidence:** `Hazy-Tatts` appears as an active Static service. Its use of a third-party form service should **not** be described as a separately deployed Node backend.
+An editorial-style commercial cleaning website with reusable components, service-sector presentation, navigation interactions and contact content. Its README documents refactoring from a larger component into **13 focused UI components**. **Render evidence:** `imperial-cleaning-services` **Static** service.
 
-**Skills demonstrated:** static hosting, third-party API communication, UX interactions, and deployment of interactive frontend features.
+### 7. Super Duper Scoopers — Multi-Page Service Website
 
-### F. Imperial Cleaning Services — Component-Based Site
+**[Source repository](https://github.com/brandon-in-tech/Super-Duper-Scoopers)** · [Package manifest](https://github.com/brandon-in-tech/Super-Duper-Scoopers/blob/main/package.json) · [Demo](https://super-duper-scoopers.onrender.com/)
 
-**Repository:** [imperial-cleaning-services](https://github.com/brandon-in-tech/imperial-cleaning-services)
+**Stack:** React, JavaScript/JSX, Vite, Tailwind CSS, Framer Motion and React Router.
 
-A React/Vite/Tailwind/Framer Motion website organized around reusable components, section-based presentation, and a contact workflow. Its repository documents a redesign from a larger single-component approach toward more focused components.
+A three-page website (Home, About, Contact) with responsive navigation, page transitions, animations, centralized content and a validated contact-form interface. **Render evidence:** `Super-Duper-Scoopers` **Static** service.
 
-**Deployment evidence:** `imperial-cleaning-services` appears as an active Static service.
+### 8. Brandon's Interactive Resume — Developer & IT Portfolio
 
-**Skills demonstrated:** frontend organization, production bundling, UI component maintenance, and application delivery.
+**[Source repository](https://github.com/brandon-in-tech/Resume)** · [Package manifest](https://github.com/brandon-in-tech/Resume/blob/main/package.json) · [Website](https://www.brandons-resume.com/)
 
-### G. Super Duper Scoopers — Multi-Page Marketing Website
+**Stack:** React 18, TypeScript, Vite, Tailwind CSS, Framer Motion, **Three.js** and Lucide React.
 
-**Repository:** [Super-Duper-Scoopers](https://github.com/brandon-in-tech/Super-Duper-Scoopers)  
-**Public Render site:** [super-duper-scoopers.onrender.com](https://super-duper-scoopers.onrender.com/)
+An interactive technical résumé with animated sections and a 3D Saturn-themed visual environment. It connects the development portfolio with professional IT infrastructure work. **Render evidence:** `Resume` **Static** service.
 
-A React/Vite/Tailwind/Framer Motion website with **React Router**, mobile navigation, animated transitions, centralized editable content, and a validated contact form.
+### 9. Cosmic Skate — Animated Frontend Concept
 
-**Deployment evidence:** `Super-Duper-Scoopers` appears in the active Static service list.
+**[Source repository](https://github.com/brandon-in-tech/cosmicskate)** · [Package manifest](https://github.com/brandon-in-tech/cosmicskate/blob/main/package.json) · [Demo](https://cosmicskate.onrender.com/)
 
-**Skills demonstrated:** production SPA delivery, client-side routing, responsive interface behavior, and deployment validation.
+**Stack:** React 18, JavaScript/JSX, Vite 5, **Three.js** and Framer Motion.
 
-### H. Personal Portfolio and Creative Demonstrations
+A galaxy-themed business frontend demonstration built around motion and visual interaction. The published source focuses on bringing a creative visual concept into a responsive browser experience. **Render evidence:** `cosmicskate` **Static** service.
 
-| Project | Public repository | Deployment / purpose |
-| --- | --- | --- |
-| **Personal Resume** | [Resume](https://github.com/brandon-in-tech/Resume) | Interactive professional portfolio; listed as `Resume` in Render; [public site](https://www.brandons-resume.com/) |
-| **Cosmic Skate** | [cosmicskate](https://github.com/brandon-in-tech/cosmicskate) | Galaxy-themed frontend concept; [Render site](https://cosmicskate.onrender.com/) |
-| **Vorus** | [Vorus](https://github.com/brandon-in-tech/Vorus) | **Fictional** luxury-fragrance product/website concept; [Render site](https://vorus.onrender.com/) |
+### 10. Vorus — Fictional Luxury Brand Concept
 
-The Vorus repository documents React/TypeScript frontend development and an Express backend in its source architecture, but the original dashboard shows only a `Vorus` **Static** service. This portfolio does **not** present the corresponding Express server as a separately verified Render deployment.
+**[Source repository](https://github.com/brandon-in-tech/Vorus)** · [Client package](https://github.com/brandon-in-tech/Vorus/blob/main/client/package.json) · [Server package](https://github.com/brandon-in-tech/Vorus/blob/main/server/package.json) · [Demo](https://vorus.onrender.com/)
 
-## 04 · Other Services Observed in the Dashboard
+**Stack:** React 18, TypeScript, Vite, Tailwind CSS, Framer Motion, Lucide React; a **separate Express.js + Mongoose server** is present in the public source.
+
+A fictional product-brand showcase emphasizing landing-page experience and custom product visuals. It includes `client/` and `server/` code, but the original screenshot verifies **only the `Vorus` Static deployment**. The Express/Mongoose source should not be presented as a confirmed live Render backend.
+
+> **Source coverage:** These are the web-development repositories whose public code/manifests I could inspect and relate to this portfolio. A Render service with no verified corresponding public repository is listed separately in the inventory below, without guessing its stack. This is not a claim that every repository in the GitHub account is a hosted web application.
+
+## 4. Other Services Observed in the Dashboard
 
 The original screenshot also lists the following active services. These entries are included as a **deployment inventory**, without inventing technologies, application features, public repositories, or ownership details not established by the screenshot.
 
@@ -162,7 +158,7 @@ The original screenshot also lists the following active services. These entries 
 
 As additional project documentation becomes available, individual entries can be expanded with source links, technical summaries, diagrams, and approved screenshots.
 
-## 05 · Application Delivery Architecture
+## 5. Application Delivery Architecture
 
 The following diagram summarizes **patterns represented by the documented projects**. It is an architecture overview, not an export of a specific account's private Render settings.
 
@@ -187,20 +183,20 @@ flowchart LR
 4. A frontend may integrate with a separately hosted backend or third-party service; the implementation is project-specific.
 5. A custom domain or linked repository does not, on its own, establish that a particular deployment is currently healthy or serving live production traffic.
 
-## 06 · Deployment & Operational Workflow
+## 6. Deployment & Operational Workflow
 
 This section documents the general workflow used across the application portfolio, rather than asserting that every project uses identical build commands or platform configuration.
 
 | Stage | Technical work | Verification or evidence |
 | --- | --- | --- |
-| **1 · Source control** | Maintain project source, dependencies, and revisions with Git/GitHub | Repository tree, commits, branch history |
-| **2 · Build preparation** | Confirm framework-specific build scripts and runtime requirements | Successful local or hosted build output |
-| **3 · Service configuration** | Select static hosting or Node runtime based on application architecture | Render service type and configuration (sanitized) |
-| **4 · Environment settings** | Configure required nonsecret values and supply secrets through platform-managed environment settings | Redacted configuration names, never values |
-| **5 · Deployment** | Publish builds and investigate deployment failures | Deployment history, redacted build logs |
-| **6 · Application validation** | Open frontend routes and, where applicable, verify expected API behavior | Browser checks, appropriate endpoint tests |
-| **7 · Domain integration** | Map public/custom domains and review DNS or HTTPS behavior when applicable | Public DNS/website checks, sanitized evidence |
-| **8 · Maintenance** | Update code, dependencies, or content and troubleshoot regressions | Commit history, issue notes, test results |
+| **1. Source control** | Maintain project source, dependencies, and revisions with Git/GitHub | Repository tree, commits, branch history |
+| **2. Build preparation** | Confirm framework-specific build scripts and runtime requirements | Successful local or hosted build output |
+| **3. Service configuration** | Select static hosting or Node runtime based on application architecture | Render service type and configuration (sanitized) |
+| **4. Environment settings** | Configure required nonsecret values and supply secrets through platform-managed environment settings | Redacted configuration names, never values |
+| **5. Deployment** | Publish builds and investigate deployment failures | Deployment history, redacted build logs |
+| **6. Application validation** | Open frontend routes and, where applicable, verify expected API behavior | Browser checks, appropriate endpoint tests |
+| **7. Domain integration** | Map public/custom domains and review DNS or HTTPS behavior when applicable | Public DNS/website checks, sanitized evidence |
+| **8. Maintenance** | Update code, dependencies, or content and troubleshoot regressions | Commit history, issue notes, test results |
 
 ### Common failure categories
 
@@ -212,7 +208,7 @@ This section documents the general workflow used across the application portfoli
 
 These are relevant troubleshooting categories, **not claims that each incident occurred** in every deployment shown.
 
-## 07 · Security, Privacy & Evidence Handling
+## 7. Security, Privacy & Evidence Handling
 
 This repository is intended to be **public-safe documentation**.
 
@@ -223,7 +219,7 @@ This repository is intended to be **public-safe documentation**.
 - Distinguish **deployed**, **running**, **suspended**, and **historically deployed** states accurately.
 - Do not treat dashboard service counts as application counts, uptime guarantees, or proof of SLA compliance.
 
-## 08 · Repository Structure
+## 8. Repository Structure
 
 ```text
 Production-Application-Deployments/
@@ -237,7 +233,7 @@ Production-Application-Deployments/
 
 This repository can be extended later with `docs/` and additional approved application screenshots; no empty directories or invented evidence are required for the initial publication.
 
-## 09 · Related Infrastructure & Automation Work
+## 9. Related Infrastructure & Automation Work
 
 My application-hosting experience complements other documented work in [enterprise networking, systems administration, and automation](https://github.com/brandon-in-tech), including:
 
