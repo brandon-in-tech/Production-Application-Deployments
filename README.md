@@ -43,7 +43,7 @@ The work represented here includes:
 
 </div>
 
-
+The original dashboard capture supplied for this portfolio showed **23 total services**, with **18 active** and **5 suspended**. Within its active list were **15 Static services** and **3 Node services**. These are counts of hosting **services**, not a claim of 23 unique applications or 23 independently verified production businesses.
 
 The three Node services visible in that original capture were:
 
@@ -65,6 +65,14 @@ The entries below summarize publicly available **application source code**, incl
 
 **[Source repository](https://github.com/brandon-in-tech/Los-s-Auto-Glass-)** · [Frontend package](https://github.com/brandon-in-tech/Los-s-Auto-Glass-/blob/main/frontend/package.json) · [Backend package](https://github.com/brandon-in-tech/Los-s-Auto-Glass-/blob/main/backend/package.json) · [Public business website](https://www.kcknglass.com/)
 
+<div align="center">
+
+<img src="./assets/los-live.png" alt="Los Auto & Glass — deployed website preview" width="100%" />
+
+<sub>Los Auto & Glass · Application preview</sub>
+
+</div>
+
 **Stack:** Next.js 14, React, TypeScript, Tailwind CSS, Framer Motion, Zustand; Node.js, Express, TypeScript, Mongoose/MongoDB integration, CORS, Helmet, JSON Web Token and validation libraries. The source also declares PayPal UI, Nodemailer, Twilio and scheduled-task dependencies.
 
 A separated `frontend/` and `backend/` application for auto-glass service discovery and booking. The actual [`backend/src/server.ts`](https://github.com/brandon-in-tech/Los-s-Auto-Glass-/blob/main/backend/src/server.ts) registers authentication, services, bookings, calendar, payment, contact, administration and SMS routes, a health-check endpoint, rate limiting, CORS and security headers. **Render evidence:** `Los-s-Auto-Glass-frontend` and `Los-s-Auto-Glass-backend` are two distinct **Node** services.
@@ -72,6 +80,14 @@ A separated `frontend/` and `backend/` application for auto-glass service discov
 ### 2. Plexura — Agency Website & Contact API Integration
 
 **[Source repository](https://github.com/brandon-in-tech/Plexura)** · [Package manifest](https://github.com/brandon-in-tech/Plexura/blob/main/package.json) · [Website](https://plexura.net/)
+
+<div align="center">
+
+<img src="./assets/plex-live.png" alt="Plexura — deployed agency website preview" width="100%" />
+
+<sub>Plexura · Application preview</sub>
+
+</div>
 
 **Stack:** React 18, JavaScript/JSX, Vite 6, React Router, Tailwind CSS 3, Framer Motion, Lucide React and Three.js. The frontend documentation describes REST/Fetch API communication for contact submissions.
 
@@ -81,6 +97,14 @@ A responsive business website with routed pages, component-based layouts and int
 
 **[Source repository](https://github.com/brandon-in-tech/Kevin-Inks)** · [Package manifest](https://github.com/brandon-in-tech/Kevin-Inks/blob/main/package.json) · [Project website](https://kevin-inks.vercel.app/)
 
+<div align="center">
+
+<img src="./assets/kevin-live.png" alt="Kevin Inks — deployed tattoo portfolio preview" width="100%" />
+
+<sub>Kevin Inks · Application preview</sub>
+
+</div>
+
 **Stack:** React 18, TypeScript, Vite 5, Tailwind CSS 3, Framer Motion and a **headless WordPress** content-management integration. The repository also contains a `wordpress-plugin/` directory.
 
 A custom tattoo portfolio with artwork galleries, design availability and consultation calls to action. WordPress provides editable content while React controls the presentation. **Render evidence:** `Kevin-Inks` appears as **Static**; the repository also advertises a Vercel address, which should not be confused with the Render service.
@@ -89,6 +113,14 @@ A custom tattoo portfolio with artwork galleries, design availability and consul
 
 **[Source repository](https://github.com/brandon-in-tech/Tiger-Paw-Cleaning)** · [Package manifest](https://github.com/brandon-in-tech/Tiger-Paw-Cleaning/blob/main/package.json) · [Website](https://www.tigerpawcleaning.com/)
 
+<div align="center">
+
+<img src="./assets/tiger-live.png" alt="Tiger Paw Cleaning — deployed website preview" width="100%" />
+
+<sub>Tiger Paw Cleaning · Application preview</sub>
+
+</div>
+
 **Stack:** React, TypeScript, Vite 6, Tailwind CSS 4, Motion and UI-component libraries including Radix UI/MUI packages in the dependency manifest.
 
 A service-focused cleaning business site featuring responsive layouts, animated presentation, service information and a quote/contact workflow. The dependency manifest is broad, so listed libraries do not necessarily imply every component is actively used. **Render evidence:** `Tiger-Paw-Cleaning` **Static** service; no independently verified Node backend.
@@ -96,6 +128,14 @@ A service-focused cleaning business site featuring responsive layouts, animated 
 ### 5. Hazy Tatts — Artist Portfolio & Booking Inquiry
 
 **[Source repository](https://github.com/brandon-in-tech/Hazy-Tatts)** · [Package manifest](https://github.com/brandon-in-tech/Hazy-Tatts/blob/main/package.json) · [Website](https://www.hazeytattoos.com/)
+
+<div align="center">
+
+<img src="./assets/hazey%20live.png" alt="Hazy Tatts — deployed tattoo portfolio preview" width="100%" />
+
+<sub>Hazy Tatts · Application preview</sub>
+
+</div>
 
 **Stack:** React 18, JavaScript/JSX, **Create React App / react-scripts 5**, custom CSS, native browser animation APIs and **Web3Forms** for booking inquiries. Unlike several other sites, this repository does **not** use Vite/Tailwind as its primary build/styling stack.
 
@@ -120,6 +160,14 @@ A three-page website (Home, About, Contact) with responsive navigation, page tra
 ### 8. Brandon's Interactive Resume — Developer & IT Portfolio
 
 **[Source repository](https://github.com/brandon-in-tech/Resume)** · [Package manifest](https://github.com/brandon-in-tech/Resume/blob/main/package.json) · [Website](https://www.brandons-resume.com/)
+
+<div align="center">
+
+<img src="./assets/resume%20live.png" alt="Brandon Stevenson's interactive resume — deployed website preview" width="100%" />
+
+<sub>Brandon's Interactive Resume · Application preview</sub>
+
+</div>
 
 **Stack:** React 18, TypeScript, Vite, Tailwind CSS, Framer Motion, **Three.js** and Lucide React.
 
@@ -226,12 +274,18 @@ Production-Application-Deployments/
 ├── README.md
 └── assets/
     ├── brandons-logo.png
-    └── render-dash.png
+    ├── render-dash.png
+    ├── hazey live.png
+    ├── resume live.png
+    ├── kevin-live.png
+    ├── los-live.png
+    ├── tiger-live.png
+    └── plex-live.png
 ```
 
-**File naming:** The image references above assume your existing assets are named exactly `brandons-logo.png` and `render-dash.png` (lowercase). If their actual extensions differ, update the two paths in this README.
+**File naming:** All eight image references match the names in `assets/` shown above, including the spaces in `hazey live.png` and `resume live.png` (encoded as `%20` in HTML image paths). Image filenames and capitalization must match exactly when committed to GitHub.
 
-This repository can be extended later with `docs/` and additional approved application screenshots; no empty directories or invented evidence are required for the initial publication.
+This repository can be extended with `docs/`, deployment workflows, and additional approved application screenshots. All portfolio images should be from real projects and authorized for public use.
 
 ## 9. Related Infrastructure & Automation Work
 
