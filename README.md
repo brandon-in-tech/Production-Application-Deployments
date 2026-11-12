@@ -43,7 +43,7 @@ The work represented here includes:
 
 </div>
 
-The original dashboard capture supplied for this portfolio showed **23 total services**, with **18 active** and **5 suspended**. Within its active list were **15 Static services** and **3 Node services**. These are counts of hosting **services**, not a claim of 23 unique applications or 23 independently verified production businesses.
+
 
 The three Node services visible in that original capture were:
 
