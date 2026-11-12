@@ -17,6 +17,33 @@ IT Infrastructure · Software Programming · Application Deployment
 
 </div>
 
+<a id="table-of-contents"></a>
+
+## Table of Contents
+
+1. [Overview](#overview)
+2. [Deployment Dashboard](#deployment-dashboard)
+3. [Featured Applications & Source Code](#featured-applications)
+   1. [Los Auto & Glass](#los-auto-glass)
+   2. [Plexura](#plexura)
+   3. [Kevin Inks](#kevin-inks)
+   4. [Tiger Paw Cleaning](#tiger-paw-cleaning)
+   5. [Hazy Tatts](#hazy-tatts)
+   6. [Super Duper Scoopers](#super-duper-scoopers)
+   7. [Brandon's Interactive Resume](#brandons-interactive-resume)
+   8. [Cosmic Skate](#cosmic-skate)
+   9. [Vorus](#vorus)
+4. [Other Services Observed in the Dashboard](#other-services)
+5. [Application Delivery Architecture](#application-delivery-architecture)
+6. [Deployment & Operational Workflow](#deployment-operational-workflow)
+7. [Security, Privacy & Evidence Handling](#security-privacy-evidence-handling)
+8. [Repository Structure](#repository-structure)
+9. [Related Infrastructure & Automation Work](#related-infrastructure-work)
+
+---
+
+<a id="overview"></a>
+
 ## 1. Overview
 
 This repository consolidates evidence of **application development, production-oriented deployments, and web service hosting** across a collection of personal projects, client-facing websites, and application demonstrations.
@@ -32,6 +59,11 @@ The work represented here includes:
 - **Deployment operations:** hosting configuration, builds, environment management, DNS/domain integration, validation, and troubleshooting.
 
 > **Scope:** This is a portfolio and implementation index, **not** an assertion that Render infrastructure itself was manually provisioned or that all projects use the same stack. Render is a managed hosting platform; underlying server orchestration, scaling, and platform security are outside the scope of the implementations documented here.
+
+[↑ Back to Table of Contents](#table-of-contents)
+
+
+<a id="deployment-dashboard"></a>
 
 ## 2. Deployment Dashboard
 
@@ -57,13 +89,20 @@ The remaining active entries were predominantly static websites and frontend dep
 
 > **Evidence integrity:** Use an unaltered dashboard capture when presenting deployed-service counts or service status as factual evidence. If the image has been edited for visual presentation, label it as an illustration and keep verified counts separate from the illustration.
 
+[↑ Back to Table of Contents](#table-of-contents)
+
+
+<a id="featured-applications"></a>
+
 ## 3. Featured Applications & Source Code
 
 The entries below summarize publicly available **application source code**, including project manifests (`package.json`), source organization, and documented features. Stack information is specific to each repository. Render service types are based on the **original unedited dashboard screenshot**, rather than inferred from files in GitHub. These are brief engineering summaries, not claims that every dependency or planned integration is active in production.
 
+<a id="los-auto-glass"></a>
+
 ### 1. Los Auto & Glass — Full-Stack Booking Application
 
-**[Source repository](https://github.com/brandon-in-tech/Los-s-Auto-Glass-)** · [Frontend package](https://github.com/brandon-in-tech/Los-s-Auto-Glass-/blob/main/frontend/package.json) · [Backend package](https://github.com/brandon-in-tech/Los-s-Auto-Glass-/blob/main/backend/package.json) · [Public business website](https://www.kcknglass.com/)
+**[Source repository](https://github.com/brandon-in-tech/Los-s-Auto-Glass-)** · [Frontend package](https://github.com/brandon-in-tech/Los-s-Auto-Glass-/blob/main/frontend/package.json) · [Backend package](https://github.com/brandon-in-tech/Los-s-Auto-Glass-/blob/main/backend/package.json) · [Live Website](https://www.kcknglass.com/)
 
 <div align="center">
 
@@ -77,9 +116,14 @@ The entries below summarize publicly available **application source code**, incl
 
 A separated `frontend/` and `backend/` application for auto-glass service discovery and booking. The actual [`backend/src/server.ts`](https://github.com/brandon-in-tech/Los-s-Auto-Glass-/blob/main/backend/src/server.ts) registers authentication, services, bookings, calendar, payment, contact, administration and SMS routes, a health-check endpoint, rate limiting, CORS and security headers. **Render evidence:** `Los-s-Auto-Glass-frontend` and `Los-s-Auto-Glass-backend` are two distinct **Node** services.
 
+[↑ Back to Table of Contents](#table-of-contents)
+
+
+<a id="plexura"></a>
+
 ### 2. Plexura — Agency Website & Contact API Integration
 
-**[Source repository](https://github.com/brandon-in-tech/Plexura)** · [Package manifest](https://github.com/brandon-in-tech/Plexura/blob/main/package.json) · [Website](https://plexura.net/)
+**[Source repository](https://github.com/brandon-in-tech/Plexura)** · [Package manifest](https://github.com/brandon-in-tech/Plexura/blob/main/package.json) · [Live Website](https://plexura.net/)
 
 <div align="center">
 
@@ -93,9 +137,14 @@ A separated `frontend/` and `backend/` application for auto-glass service discov
 
 A responsive business website with routed pages, component-based layouts and interactive effects. The source includes optional animation-worker functionality with a fallback. Its [`src/App.jsx`](https://github.com/brandon-in-tech/Plexura/blob/main/src/App.jsx) implements `POST /api/contact` using a configurable `VITE_API_URL` and a Render-hosted default endpoint. **Render evidence:** a `Plexura` **Static** service and a separate `Plexura-backend` **Node** service. The public frontend identifies the intended API endpoint but does not independently verify the backend's internal implementation or current runtime health.
 
+[↑ Back to Table of Contents](#table-of-contents)
+
+
+<a id="kevin-inks"></a>
+
 ### 3. Kevin Inks — Headless WordPress Portfolio
 
-**[Source repository](https://github.com/brandon-in-tech/Kevin-Inks)** · [Package manifest](https://github.com/brandon-in-tech/Kevin-Inks/blob/main/package.json) · [Project website](https://kevin-inks.vercel.app/)
+**[Source repository](https://github.com/brandon-in-tech/Kevin-Inks)** · [Package manifest](https://github.com/brandon-in-tech/Kevin-Inks/blob/main/package.json) · [Live Website](https://kevin-inks.onrender.com/)
 
 <div align="center">
 
@@ -107,11 +156,16 @@ A responsive business website with routed pages, component-based layouts and int
 
 **Stack:** React 18, TypeScript, Vite 5, Tailwind CSS 3, Framer Motion and a **headless WordPress** content-management integration. The repository also contains a `wordpress-plugin/` directory.
 
-A custom tattoo portfolio with artwork galleries, design availability and consultation calls to action. WordPress provides editable content while React controls the presentation. **Render evidence:** `Kevin-Inks` appears as **Static**; the repository also advertises a Vercel address, which should not be confused with the Render service.
+A custom tattoo portfolio with artwork galleries, design availability and consultation calls to action. WordPress provides editable content while React controls the presentation. **Render evidence:** `Kevin-Inks` appears as **Static**; the live project link above points to the Render-hosted website.
+
+[↑ Back to Table of Contents](#table-of-contents)
+
+
+<a id="tiger-paw-cleaning"></a>
 
 ### 4. Tiger Paw Cleaning — Responsive Client Website
 
-**[Source repository](https://github.com/brandon-in-tech/Tiger-Paw-Cleaning)** · [Package manifest](https://github.com/brandon-in-tech/Tiger-Paw-Cleaning/blob/main/package.json) · [Website](https://www.tigerpawcleaning.com/)
+**[Source repository](https://github.com/brandon-in-tech/Tiger-Paw-Cleaning)** · [Package manifest](https://github.com/brandon-in-tech/Tiger-Paw-Cleaning/blob/main/package.json) · [Live Website](https://www.tigerpawcleaning.com/)
 
 <div align="center">
 
@@ -125,9 +179,14 @@ A custom tattoo portfolio with artwork galleries, design availability and consul
 
 A service-focused cleaning business site featuring responsive layouts, animated presentation, service information and a quote/contact workflow. The dependency manifest is broad, so listed libraries do not necessarily imply every component is actively used. **Render evidence:** `Tiger-Paw-Cleaning` **Static** service; no independently verified Node backend.
 
+[↑ Back to Table of Contents](#table-of-contents)
+
+
+<a id="hazy-tatts"></a>
+
 ### 5. Hazy Tatts — Artist Portfolio & Booking Inquiry
 
-**[Source repository](https://github.com/brandon-in-tech/Hazy-Tatts)** · [Package manifest](https://github.com/brandon-in-tech/Hazy-Tatts/blob/main/package.json) · [Website](https://www.hazeytattoos.com/)
+**[Source repository](https://github.com/brandon-in-tech/Hazy-Tatts)** · [Package manifest](https://github.com/brandon-in-tech/Hazy-Tatts/blob/main/package.json) · [Live Website](https://hazy-tatts.onrender.com/)
 
 <div align="center">
 
@@ -141,23 +200,33 @@ A service-focused cleaning business site featuring responsive layouts, animated 
 
 A filterable portfolio with gallery lightboxes, responsive navigation and inquiry forms. **Render evidence:** `Hazy-Tatts` **Static** service. Web3Forms is an external form service—not proof of a separately hosted backend.
 
-### 6. Imperial Cleaning Services — Component-Based Business Website
+[↑ Back to Table of Contents](#table-of-contents)
 
-**[Source repository](https://github.com/brandon-in-tech/imperial-cleaning-services)** · [Package manifest](https://github.com/brandon-in-tech/imperial-cleaning-services/blob/main/package.json)
 
-**Stack:** React, JavaScript/JSX, Vite, Tailwind CSS and Framer Motion.
+<a id="super-duper-scoopers"></a>
 
-An editorial-style commercial cleaning website with reusable components, service-sector presentation, navigation interactions and contact content. Its README documents refactoring from a larger component into **13 focused UI components**. **Render evidence:** `imperial-cleaning-services` **Static** service.
+### 6. Super Duper Scoopers — Multi-Page Service Website
 
-### 7. Super Duper Scoopers — Multi-Page Service Website
+**[Source repository](https://github.com/brandon-in-tech/Super-Duper-Scoopers)** · [Package manifest](https://github.com/brandon-in-tech/Super-Duper-Scoopers/blob/main/package.json) · [Live Website](https://super-duper-scoopers.onrender.com/)
 
-**[Source repository](https://github.com/brandon-in-tech/Super-Duper-Scoopers)** · [Package manifest](https://github.com/brandon-in-tech/Super-Duper-Scoopers/blob/main/package.json) · [Demo](https://super-duper-scoopers.onrender.com/)
+<div align="center">
+
+<img src="./assets/super-live.png" alt="Super Duper Scoopers — deployed service website preview" width="100%" />
+
+<sub>Super Duper Scoopers · Application preview</sub>
+
+</div>
 
 **Stack:** React, JavaScript/JSX, Vite, Tailwind CSS, Framer Motion and React Router.
 
 A three-page website (Home, About, Contact) with responsive navigation, page transitions, animations, centralized content and a validated contact-form interface. **Render evidence:** `Super-Duper-Scoopers` **Static** service.
 
-### 8. Brandon's Interactive Resume — Developer & IT Portfolio
+[↑ Back to Table of Contents](#table-of-contents)
+
+
+<a id="brandons-interactive-resume"></a>
+
+### 7. Brandon's Interactive Resume — Developer & IT Portfolio
 
 **[Source repository](https://github.com/brandon-in-tech/Resume)** · [Package manifest](https://github.com/brandon-in-tech/Resume/blob/main/package.json) · [Website](https://www.brandons-resume.com/)
 
@@ -173,23 +242,54 @@ A three-page website (Home, About, Contact) with responsive navigation, page tra
 
 An interactive technical résumé with animated sections and a 3D Saturn-themed visual environment. It connects the development portfolio with professional IT infrastructure work. **Render evidence:** `Resume` **Static** service.
 
-### 9. Cosmic Skate — Animated Frontend Concept
+[↑ Back to Table of Contents](#table-of-contents)
 
-**[Source repository](https://github.com/brandon-in-tech/cosmicskate)** · [Package manifest](https://github.com/brandon-in-tech/cosmicskate/blob/main/package.json) · [Demo](https://cosmicskate.onrender.com/)
+
+<a id="cosmic-skate"></a>
+
+### 8. Cosmic Skate — Animated Frontend Concept
+
+**[Source repository](https://github.com/brandon-in-tech/cosmicskate)** · [Package manifest](https://github.com/brandon-in-tech/cosmicskate/blob/main/package.json) · [Live Website](https://cosmicskate.onrender.com/)
+
+<div align="center">
+
+<img src="./assets/cosmic-live.png" alt="Cosmic Skate — deployed creative storefront preview" width="100%" />
+
+<sub>Cosmic Skate · Application preview</sub>
+
+</div>
 
 **Stack:** React 18, JavaScript/JSX, Vite 5, **Three.js** and Framer Motion.
 
 A galaxy-themed business frontend demonstration built around motion and visual interaction. The published source focuses on bringing a creative visual concept into a responsive browser experience. **Render evidence:** `cosmicskate` **Static** service.
 
-### 10. Vorus — Fictional Luxury Brand Concept
+[↑ Back to Table of Contents](#table-of-contents)
+
+
+<a id="vorus"></a>
+
+### 9. Vorus — Fictional Luxury Brand Concept
 
 **[Source repository](https://github.com/brandon-in-tech/Vorus)** · [Client package](https://github.com/brandon-in-tech/Vorus/blob/main/client/package.json) · [Server package](https://github.com/brandon-in-tech/Vorus/blob/main/server/package.json) · [Demo](https://vorus.onrender.com/)
+
+<div align="center">
+
+<img src="./assets/vorus-live.png" alt="Vorus — deployed luxury fragrance concept preview" width="100%" />
+
+<sub>Vorus · Application preview</sub>
+
+</div>
 
 **Stack:** React 18, TypeScript, Vite, Tailwind CSS, Framer Motion, Lucide React; a **separate Express.js + Mongoose server** is present in the public source.
 
 A fictional product-brand showcase emphasizing landing-page experience and custom product visuals. It includes `client/` and `server/` code, but the original screenshot verifies **only the `Vorus` Static deployment**. The Express/Mongoose source should not be presented as a confirmed live Render backend.
 
 > **Source coverage:** These are the web-development repositories whose public code/manifests I could inspect and relate to this portfolio. A Render service with no verified corresponding public repository is listed separately in the inventory below, without guessing its stack. This is not a claim that every repository in the GitHub account is a hosted web application.
+
+[↑ Back to Table of Contents](#table-of-contents)
+
+
+<a id="other-services"></a>
 
 ## 4. Other Services Observed in the Dashboard
 
@@ -205,6 +305,11 @@ The original screenshot also lists the following active services. These entries 
 | `Plexura-Space` | Static | Source repository not verified in this review |
 
 As additional project documentation becomes available, individual entries can be expanded with source links, technical summaries, diagrams, and approved screenshots.
+
+[↑ Back to Table of Contents](#table-of-contents)
+
+
+<a id="application-delivery-architecture"></a>
 
 ## 5. Application Delivery Architecture
 
@@ -231,6 +336,11 @@ flowchart LR
 4. A frontend may integrate with a separately hosted backend or third-party service; the implementation is project-specific.
 5. A custom domain or linked repository does not, on its own, establish that a particular deployment is currently healthy or serving live production traffic.
 
+[↑ Back to Table of Contents](#table-of-contents)
+
+
+<a id="deployment-operational-workflow"></a>
+
 ## 6. Deployment & Operational Workflow
 
 This section documents the general workflow used across the application portfolio, rather than asserting that every project uses identical build commands or platform configuration.
@@ -256,6 +366,11 @@ This section documents the general workflow used across the application portfoli
 
 These are relevant troubleshooting categories, **not claims that each incident occurred** in every deployment shown.
 
+[↑ Back to Table of Contents](#table-of-contents)
+
+
+<a id="security-privacy-evidence-handling"></a>
+
 ## 7. Security, Privacy & Evidence Handling
 
 This repository is intended to be **public-safe documentation**.
@@ -266,6 +381,11 @@ This repository is intended to be **public-safe documentation**.
 - Use client screenshots, brand assets, and project details only when authorized for public presentation.
 - Distinguish **deployed**, **running**, **suspended**, and **historically deployed** states accurately.
 - Do not treat dashboard service counts as application counts, uptime guarantees, or proof of SLA compliance.
+
+[↑ Back to Table of Contents](#table-of-contents)
+
+
+<a id="repository-structure"></a>
 
 ## 8. Repository Structure
 
@@ -280,12 +400,20 @@ Production-Application-Deployments/
     ├── kevin-live.png
     ├── los-live.png
     ├── tiger-live.png
-    └── plex-live.png
+    ├── plex-live.png
+    ├── vorus-live.png
+    ├── super-live.png
+    └── cosmic-live.png
 ```
 
-**File naming:** All eight image references match the names in `assets/` shown above, including the spaces in `hazey live.png` and `resume live.png` (encoded as `%20` in HTML image paths). Image filenames and capitalization must match exactly when committed to GitHub.
+**File naming:** All eleven image references match the names in `assets/` shown above, including the spaces in `hazey live.png` and `resume live.png` (encoded as `%20` in HTML image paths). Image filenames and capitalization must match exactly when committed to GitHub.
 
 This repository can be extended with `docs/`, deployment workflows, and additional approved application screenshots. All portfolio images should be from real projects and authorized for public use.
+
+[↑ Back to Table of Contents](#table-of-contents)
+
+
+<a id="related-infrastructure-work"></a>
 
 ## 9. Related Infrastructure & Automation Work
 
@@ -296,6 +424,8 @@ My application-hosting experience complements other documented work in [enterpri
 - [Cisco Catalyst 2960-X Infrastructure Project](https://github.com/brandon-in-tech/Cisco-Catalyst-2960X-Hands-On-Infrastructure-Project) — network-device recovery and secure servicing.
 
 This broader portfolio reflects an interest in the **complete technology stack**: physical infrastructure, operating systems, networks, identity, automation, and the applications that run on top.
+
+[↑ Back to Table of Contents](#table-of-contents)
 
 ---
 
